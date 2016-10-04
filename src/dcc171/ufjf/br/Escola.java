@@ -51,7 +51,9 @@ public class Escola {
     
     public void adicionaAluno (Aluno a)
     {
-        lista_alunos.add(a);
+        System.out.println("Tamanho: " +Escola.lista_alunos.size());
+        Escola.lista_alunos.add(a);
+        System.out.println("Tamanho: " +Escola.lista_alunos.size());
     }
     
     public void adicionaProfessor (Professor p)

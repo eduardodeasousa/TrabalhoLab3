@@ -202,8 +202,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Escola esc = new Escola();
-        esc.toString();
+       
+        System.out.println("Tamanho: " + Escola.getLista_alunos().size());
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
