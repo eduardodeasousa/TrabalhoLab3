@@ -3,6 +3,7 @@
 */
 package dcc171.ufjf.br;
 
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 public class Trabalho1 {
@@ -19,4 +20,5 @@ public class Trabalho1 {
         System.out.println("Fechando");
     }
     
-}
+    }
+   
