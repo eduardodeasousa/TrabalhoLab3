@@ -5,6 +5,8 @@
  */
 package dcc171.ufjf.br;
 
+import java.util.List;
+
 /**
  *
  * @author eduardo.sousa
@@ -29,6 +31,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -48,6 +51,14 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Aluno");
+
+        jList1.setModel(new javax.swing.AbstractListModel<Aluno>() {
+            Escola esc = new Escola();
+            List<Aluno> strings = Escola.getLista_alunos();
+            public int getSize() { return strings.size(); }
+            public Aluno getElementAt(int i) { return strings.get(i); }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         jTextField1.setText("Nome");
         jTextField1.setPreferredSize(new java.awt.Dimension(100, 20));
@@ -251,6 +262,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    protected javax.swing.JList<Aluno> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;

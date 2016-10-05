@@ -18,7 +18,8 @@ public class Escola {
     }
     
     public static List<Aluno> getLista_alunos() {
-        return lista_alunos;
+       
+        return Escola.lista_alunos;
     }
 
     public static void setLista_alunos(ArrayList<Aluno> lista_alunos) {
