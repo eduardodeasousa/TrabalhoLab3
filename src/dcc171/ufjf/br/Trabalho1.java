@@ -20,9 +20,14 @@ public class Trabalho1 {
         ArrayList<Aluno> novaList = new ArrayList<Aluno>();
         novaList.add(novoAluno);
         Escola.setListaAlunos(novaList);
+        Professor novoProf = new Professor("Igor Knop","igorteste","321");
+        ArrayList<Professor> novaLProf = new ArrayList<Professor>();
+        novaLProf.add(novoProf);
+        Escola.setListaProf(novaLProf);
+               
         
         MainFrame janela = new MainFrame();
-        janela.setSize(815,605);
+        janela.setSize(826,605);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janela.setLocationRelativeTo(null);
         janela.setVisible(true);

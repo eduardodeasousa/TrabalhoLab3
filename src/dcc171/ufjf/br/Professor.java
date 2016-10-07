@@ -14,7 +14,6 @@ public class Professor {
     public Professor() {
     }
 
-    
     public String getNome() {
         return nome;
     }
@@ -41,7 +40,7 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor{" + "email=" + email + ", telefone=" + telefone + '}';
+        return nome+ " ,Email=" + email + ", Telefone=" + telefone;
     }
     
     
