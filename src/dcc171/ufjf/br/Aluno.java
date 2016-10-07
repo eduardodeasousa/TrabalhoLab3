@@ -12,6 +12,11 @@ public class Aluno {
         this.telefone = telefone;
     }
 
+    public Aluno() {
+    }
+    
+    
+
     public String getNome() {
         return nome;
     }

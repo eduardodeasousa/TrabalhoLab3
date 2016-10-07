@@ -11,6 +11,10 @@ public class Professor {
         this.telefone = telefone;
     }
 
+    public Professor() {
+    }
+
+    
     public String getNome() {
         return nome;
     }

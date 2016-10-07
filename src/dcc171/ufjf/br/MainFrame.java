@@ -26,8 +26,10 @@ public class MainFrame extends JFrame {
     private final JTextField txtTelefone = new JTextField("Telefone",34);
     private final JButton addAluno = new JButton("+");
     private final JButton remAluno = new JButton("-");
-    private final JButton moreAluno = new JButton("?");
-    private final JList<String> lstAlunos = new JList<>(new DefaultListModel<String>());
+    private final JButton moreAluno = new JButton("?"); 
+    private final DefaultListModel<Aluno> modeloAlunos = new DefaultListModel<Aluno>();
+    private final JList<Aluno> lstAlunos = new JList<>();
+   // private final JList<String>lstAlunos1 = new JList<String>((String[]) Escola.getLista_alunos().toArray());
  
 
     public MainFrame() {
@@ -53,7 +55,7 @@ public class MainFrame extends JFrame {
         pnlNoroeste.add(txtAluno);
         pnlNoroeste.add(txtEmail);
         pnlNoroeste.add(txtTelefone);
-        pnlNoroesteFilho.add(lstAlunos);
+        //pnlNoroesteFilho.add(lstAlunos);
         pnlNoroeste.add(pnlNoroesteFilho);
         pnlNoroeste.add(addAluno);
         pnlNoroeste.add(remAluno);
@@ -63,6 +65,11 @@ public class MainFrame extends JFrame {
         add(pnlNordeste);
         add(pnlSudoeste);
         add(pnlSudeste);
+        
+        for (Aluno aluno : Escola.getListaAlunos()) {
+            modeloAlunos.addElement(aluno);
+        }
+        lstAlunos.setModel(modeloAlunos);
       
         
     }
