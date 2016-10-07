@@ -29,8 +29,6 @@ public class MainFrame extends JFrame {
     private final JButton moreAluno = new JButton("?"); 
     private final DefaultListModel<Aluno> modeloAlunos = new DefaultListModel<Aluno>();
     private final JList<Aluno> lstAlunos = new JList<>();
-   // private final JList<String>lstAlunos1 = new JList<String>((String[]) Escola.getLista_alunos().toArray());
- 
 
     public MainFrame() {
         super("Escola Falsa para Trabalho 1 - Jose Eduardo");
@@ -55,7 +53,6 @@ public class MainFrame extends JFrame {
         pnlNoroeste.add(txtAluno);
         pnlNoroeste.add(txtEmail);
         pnlNoroeste.add(txtTelefone);
-        //pnlNoroesteFilho.add(lstAlunos);
         pnlNoroeste.add(pnlNoroesteFilho);
         pnlNoroeste.add(addAluno);
         pnlNoroeste.add(remAluno);
@@ -69,6 +66,7 @@ public class MainFrame extends JFrame {
         for (Aluno aluno : Escola.getListaAlunos()) {
             modeloAlunos.addElement(aluno);
         }
+        
         lstAlunos.setModel(modeloAlunos);
       
         
