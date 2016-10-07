@@ -15,7 +15,7 @@ public class Trabalho1 {
         System.out.println("Iniciando");
         
         MainFrame janela = new MainFrame();
-        janela.setSize(800,600);
+        janela.setSize(815,605);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janela.setLocationRelativeTo(null);
         janela.setVisible(true);
