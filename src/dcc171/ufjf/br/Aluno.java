@@ -14,8 +14,6 @@ public class Aluno {
 
     public Aluno() {
     }
-    
-    
 
     public String getNome() {
         return nome;

@@ -7,17 +7,15 @@ public class Escola {
 
     private static ArrayList<Aluno>     listaAlunos;
     private static ArrayList<Professor> listaProf;
-    private static ArrayList<Aula>      listaAula;
-    private static ArrayList<Curso>     listaCurso;   
+    private static ArrayList<Aula>      listaAula; 
 
     public Escola() {
         listaAlunos = new ArrayList<>();
         listaProf = new ArrayList<>();
         listaAula = new ArrayList<>();
-        listaCurso = new ArrayList<>();
     }
     
-    public static List<Aluno> getListaAlunos() {
+    public static ArrayList<Aluno> getListaAlunos() {
        
         return Escola.listaAlunos;
     }
@@ -26,7 +24,7 @@ public class Escola {
         Escola.listaAlunos = listaAlunos;
     }
 
-    public static List<Professor> getListaProf() {
+    public static ArrayList<Professor> getListaProf() {
         return listaProf;
     }
 
@@ -34,7 +32,7 @@ public class Escola {
         Escola.listaProf = listaProf;
     }
 
-    public static List<Aula> getListaAula() {
+    public static ArrayList<Aula> getListaAula() {
         return listaAula;
     }
 
@@ -42,14 +40,6 @@ public class Escola {
         Escola.listaAula = listaAula;
     }
 
-    public static List<Curso> getListaCurso() {
-        return listaCurso;
-    }
-
-    public static void setListaCurso(ArrayList<Curso> listaCurso) {
-        Escola.listaCurso = listaCurso;
-    }
-    
     public void adicionaAluno (Aluno a)
     {
         System.out.println("Tamanho: " +Escola.listaAlunos.size());
@@ -67,11 +57,6 @@ public class Escola {
         Escola.listaAula.add(a);
     }
     
-    public void adicionaCurso (Curso c)
-    {
-        Escola.listaCurso.add(c);
-    }
-
     @Override
     public String toString() {
         try {
