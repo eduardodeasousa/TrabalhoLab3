@@ -5,7 +5,9 @@ package dcc171.ufjf.br;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.JFrame;
 
@@ -27,10 +29,10 @@ public class Trabalho1 {
         novaLProf.add(novoProf);
         Escola.setListaProf(novaLProf);
         
-        GregorianCalendar ini_insc = new GregorianCalendar(2016, 10, 9, 10, 00);
-        GregorianCalendar fin_insc = new GregorianCalendar(2016, 10, 20, 10, 00);
-        GregorianCalendar hor_start = new GregorianCalendar(2016,10,21,10,00);
-        GregorianCalendar hor_end = new GregorianCalendar(2016,10,21,12,00);
+        Date ini_insc = new Date(10,0,0);
+        Date fin_insc = new  Time(10)
+        Date hor_start = new Date(2016,10,21,10,00);
+        Date hor_end = new   Date(2016,10,21,12,00);
         
         int maxAlunos = 15;
         float horas = (float) 2.0;
