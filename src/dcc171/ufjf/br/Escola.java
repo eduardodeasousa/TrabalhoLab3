@@ -57,11 +57,6 @@ public class Escola {
         Escola.listaAula.add(a);
     }
     
-    public void addAlunoAula (Aula a, Aluno b)
-    {
-      
-        Escola.getListaAula().stream().filter(a -> Objet).equals(b)
-    }
     @Override
     public String toString() {
         try {

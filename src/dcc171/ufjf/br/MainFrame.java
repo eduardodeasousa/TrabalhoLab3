@@ -92,6 +92,9 @@ public class MainFrame extends JFrame {
         remProfListener listenerProfRem = new remProfListener();
         remProf.addActionListener(listenerProfRem);
         
+        addAlunoAulaListener listenerAddAlunoAula = new addAlunoAulaListener();
+        btnAddAula.addActionListener(listenerAddAlunoAula);
+        
         pnlNoroeste.setBorder(new TitledBorder("Aluno"));
         pnlNoroeste.add(txtAluno);
         pnlNoroeste.add(txtEmail);
@@ -226,12 +229,25 @@ public class MainFrame extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-       /*    ArrayList<Aula> listaTemp = Escola.getListaAula();
-           Aluno alunoPAula = lstAlunos.getSelectedValue();
-           Aula aulaSelect = lstAula.getSelectedValue();
+            
+           ArrayList<Aula> listaTemp = Escola.getListaAula();
+           Aula aulaTemp = lstAula.getSelectedValue();
+           listaTemp.remove(lstAula.getSelectedValue());
+           ArrayList<Aluno> listaAlunos = aulaTemp.getAlunos();
+           Aluno debuga = lstAlunos.getSelectedValue();
+         
+           listaAlunos.add(lstAlunos.getSelectedValue());
+           aulaTemp.setAlunos(listaAlunos);
+           listaTemp.add(aulaTemp);
+           Escola.setListaAula(listaTemp);
            
-           Aula novaAula = new Aula() */
-        }
+           modeloAula.removeAllElements();
+           for (Aula aula : Escola.getListaAula()) 
+            {
+                modeloAula.addElement(aula);
+            }
+           lstAula.setModel(modeloAula);
+           }
         
     }
 }
