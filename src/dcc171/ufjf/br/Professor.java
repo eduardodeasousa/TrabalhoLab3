@@ -40,7 +40,7 @@ public class Professor {
 
     @Override
     public String toString() {
-        return nome+ " ,Email=" + email + ", Telefone=" + telefone;
+        return nome+ " ,Email: " + email + " ,Telefone: " + telefone;
     }
     
     

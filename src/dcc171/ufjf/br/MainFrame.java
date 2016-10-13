@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
     private final DefaultListModel<Professor> modeloProf = new DefaultListModel<Professor>();
     private final JList<Professor> lstProf = new JList<>();
     
-    private final JButton btnAddAula = new JButton("+");
+    private final JButton btnAddAula = new JButton("+Aluno");
     private final JButton btnRemAula = new JButton("-");
     private final JButton btnMoreAula = new JButton("?");
     private final JTextField txtMaxAlunos = new JTextField("Max Alunos",34);
@@ -117,8 +117,11 @@ public class MainFrame extends JFrame {
         pnlSul.add(txtInscFim);
         pnlSul.add(txtAulaIni);
         pnlSul.add(txtAulaFim);
+        pnlSul.add(btnAddAula);
+        pnlSul.add(btnRemAula);
         pnlSulFilho.setPreferredSize(new Dimension(760,200));
         pnlSul.add(pnlSulFilho);
+ 
         
         pnlSul.setBorder(new TitledBorder("Aulas"));
         
@@ -215,6 +218,19 @@ public class MainFrame extends JFrame {
           Escola.setListaProf(listaTemp);
           modeloProf.remove(lstProf.getSelectedIndex());
     
+        }
+        
+    }
+    
+    private class addAlunoAulaListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+       /*    ArrayList<Aula> listaTemp = Escola.getListaAula();
+           Aluno alunoPAula = lstAlunos.getSelectedValue();
+           Aula aulaSelect = lstAula.getSelectedValue();
+           
+           Aula novaAula = new Aula() */
         }
         
     }
