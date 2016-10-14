@@ -36,7 +36,7 @@ public class Trabalho1 {
         
         int maxAlunos = 15;
         float horas = (float) 2.0;
-        Aula novaAula = new Aula(Escola.getListaAlunos(),hora_ini,hora_ini,hora_ini,hora_ini,novoProf,"Lab Prog 3",horas,maxAlunos);
+        Aula novaAula = new Aula(hora_ini,hora_ini,hora_ini,hora_ini,novoProf,"Lab Prog 3",horas,maxAlunos);
         ArrayList<Aula> listaAulas = new ArrayList<>();
         listaAulas.add(novaAula);
         Escola.setListaAula(listaAulas);

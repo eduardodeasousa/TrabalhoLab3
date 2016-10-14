@@ -235,7 +235,8 @@ public class MainFrame extends JFrame {
            listaTemp.remove(lstAula.getSelectedValue());
            ArrayList<Aluno> listaAlunos = aulaTemp.getAlunos();
            Aluno debuga = lstAlunos.getSelectedValue();
-         
+           if (!lstAula.getSelectedValue().getAlunos().contains(lstAlunos.getSelectedValue()))
+           {
            listaAlunos.add(lstAlunos.getSelectedValue());
            aulaTemp.setAlunos(listaAlunos);
            listaTemp.add(aulaTemp);
@@ -248,6 +249,6 @@ public class MainFrame extends JFrame {
             }
            lstAula.setModel(modeloAula);
            }
-        
+        }
     }
 }
