@@ -57,19 +57,4 @@ public class Escola {
         Escola.listaAula.add(a);
     }
     
-    @Override
-    public String toString() {
-        try {
-        String alunos = listaAlunos.get(0).toString();
-        return alunos;
-        }
-        catch (Exception e)
-        {
-            System.out.println("Problema: " + e);
-        }
-        return null;
-    }
-    
-    
-    
 }

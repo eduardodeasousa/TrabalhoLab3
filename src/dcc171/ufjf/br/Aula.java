@@ -47,6 +47,54 @@ public class Aula {
     public void setAlunos(ArrayList<Aluno> alunos) {
         this.alunos = alunos;
     }
+
+    public Calendar getHorario_ini_insc() {
+        return horario_ini_insc;
+    }
+
+    public void setHorario_ini_insc(Calendar horario_ini_insc) {
+        this.horario_ini_insc = horario_ini_insc;
+    }
+
+    public Calendar getHorario_start() {
+        return horario_start;
+    }
+
+    public void setHorario_start(Calendar horario_start) {
+        this.horario_start = horario_start;
+    }
+
+    public Calendar getHorario_end() {
+        return horario_end;
+    }
+
+    public void setHorario_end(Calendar horario_end) {
+        this.horario_end = horario_end;
+    }
+
+    public Calendar getHorario_fim_insc() {
+        return horario_fim_insc;
+    }
+
+    public void setHorario_fim_insc(Calendar horario_fim_insc) {
+        this.horario_fim_insc = horario_fim_insc;
+    }
+
+    public int getMax_alunos() {
+        return max_alunos;
+    }
+
+    public void setMax_alunos(int max_alunos) {
+        this.max_alunos = max_alunos;
+    }
+
+    public Professor getProf() {
+        return prof;
+    }
+
+    public void setProf(Professor prof) {
+        this.prof = prof;
+    }
     
     
     

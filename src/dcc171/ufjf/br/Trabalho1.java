@@ -18,8 +18,7 @@ public class Trabalho1 {
     public static void main(String[] args) {
        
         System.out.println("Iniciando");
-        
-        Escola esc = new Escola();
+       //Adicionando Aluno, Professor e Aula iniciais.
         Aluno novoAluno = new Aluno("Jose Eduardo","eduardoteste","123");
         ArrayList<Aluno> novaList = new ArrayList<Aluno>();
         novaList.add(novoAluno);
@@ -41,9 +40,8 @@ public class Trabalho1 {
         listaAulas.add(novaAula);
         Escola.setListaAula(listaAulas);
        
-                 
         MainFrame janela = new MainFrame();
-        janela.setSize(826,660);
+        janela.setSize(826,670);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janela.setLocationRelativeTo(null);
         janela.setVisible(true);
