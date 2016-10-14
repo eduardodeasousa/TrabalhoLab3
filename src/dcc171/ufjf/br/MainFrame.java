@@ -7,7 +7,12 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -44,7 +49,7 @@ public class MainFrame extends JFrame {
     private final JList<Professor> lstProf = new JList<>();
     
     private final JButton btnAddAula = new JButton("+Aluno");
-    private final JButton btnRemAula = new JButton("-");
+    private final JButton btnRemAula = new JButton("-Aula");
     private final JButton btnMoreAula = new JButton("?");
     private final JTextField txtMaxAlunos = new JTextField("Max Alunos",34);
     private final JTextField txtDesc = new JTextField("Descrição",34);
@@ -57,6 +62,7 @@ public class MainFrame extends JFrame {
     
     private final DefaultListModel<Aula> modeloAula = new DefaultListModel<Aula>();
     private final JList<Aula> lstAula = new JList<>();
+    private final JButton btnCriaAula = new JButton("+Aula");
 
     
     
@@ -68,17 +74,13 @@ public class MainFrame extends JFrame {
         JScrollPane pnlNoroesteFilho = new JScrollPane(lstAlunos);
         pnlNoroesteFilho.setPreferredSize(new Dimension(380,190));
         pnlNoroeste.setPreferredSize(new Dimension(400,300));
-      //  pnlNoroeste.setBackground(Color.BLACK);
         JPanel pnlNordeste = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         JScrollPane pnlNordesteFilho = new JScrollPane(lstProf);
         pnlNordesteFilho.setPreferredSize(new Dimension(380,190));
         pnlNordeste.setPreferredSize(new Dimension(400,300));
-       //pnlNordeste.setBackground(Color.red);
         JPanel pnlSul = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         pnlSul.setPreferredSize(new Dimension(800,300));
         JScrollPane pnlSulFilho = new JScrollPane(lstAula);
-      //  pnlSudeste.setBackground(Color.BLUE);
-    //    JPanel pnlSudoeste = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
         addAlunoListener listenerAluno = new addAlunoListener();
         addAluno.addActionListener(listenerAluno);
@@ -94,6 +96,15 @@ public class MainFrame extends JFrame {
         
         addAlunoAulaListener listenerAddAlunoAula = new addAlunoAulaListener();
         btnAddAula.addActionListener(listenerAddAlunoAula);
+        
+        addAulaListener listenerAddAula = new addAulaListener();
+        btnCriaAula.addActionListener(listenerAddAula);
+        
+        remAulaListener listenerRemAula = new remAulaListener();
+        btnRemAula.addActionListener(listenerRemAula);
+        
+        whoAulaListener listenerWhoAula = new whoAulaListener();
+        btnMoreAula.addActionListener(listenerWhoAula);
         
         pnlNoroeste.setBorder(new TitledBorder("Aluno"));
         pnlNoroeste.add(txtAluno);
@@ -122,6 +133,8 @@ public class MainFrame extends JFrame {
         pnlSul.add(txtAulaFim);
         pnlSul.add(btnAddAula);
         pnlSul.add(btnRemAula);
+        pnlSul.add(btnCriaAula);
+        pnlSul.add(btnMoreAula);
         pnlSulFilho.setPreferredSize(new Dimension(760,200));
         pnlSul.add(pnlSulFilho);
  
@@ -250,5 +263,72 @@ public class MainFrame extends JFrame {
            lstAula.setModel(modeloAula);
            }
         }
+    }
+    private class addAulaListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ArrayList<Aula> listaAula = Escola.getListaAula();
+            
+            Calendar cal = Calendar.getInstance();
+            Calendar cal1 = Calendar.getInstance();
+            Calendar cal2 = Calendar.getInstance();
+            Calendar cal3 = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            try {
+                cal.setTime(sdf.parse(txtInscIni.getText()));
+                cal1.setTime(sdf.parse(txtInscFim.getText()));
+                cal2.setTime(sdf.parse(txtAulaIni.getText()));
+                cal3.setTime(sdf.parse(txtAulaFim.getText()));
+            Aula novaAula = new Aula(cal,cal1,cal2,cal3,lstProf.getSelectedValue(),txtDesc.getText(),Float.valueOf(txtTotalHoras.getText()),Integer.parseInt(txtMaxAlunos.getText()));
+            listaAula.add(novaAula);
+            Escola.setListaAula(listaAula);
+            modeloAula.removeAllElements();
+            for (Aula aula : Escola.getListaAula()) 
+            {
+            modeloAula.addElement(aula);
+            }
+            lstAula.setModel(modeloAula);
+                
+            } catch (ParseException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+    }
+    
+    private class remAulaListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ArrayList<Aula> listAula = Escola.getListaAula();
+            listAula.remove(lstAula.getSelectedValue());
+            Escola.setListaAula(listAula);
+            modeloAula.remove(lstAula.getSelectedIndex());
+        }
+        
+        
+    }
+    private class whoAulaListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           Aula aulaTemp = lstAula.getSelectedValue();
+           if (aulaTemp!=null)
+           {
+            ArrayList<Aluno> alunosTemp = aulaTemp.getAlunos();
+            /*for (Aluno aluno : alunosTemp) {
+                System.out.println(aluno.getNome());
+            }
+            */
+             alunosMatriculadosFrame novaJanela = new alunosMatriculadosFrame(alunosTemp);
+             novaJanela.setSize(500,660);
+             novaJanela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             novaJanela.setLocationRelativeTo(null);
+             novaJanela.setVisible(true);
+           }
+        }
+    
     }
 }
