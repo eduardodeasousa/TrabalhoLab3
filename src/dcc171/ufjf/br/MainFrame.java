@@ -51,8 +51,7 @@ public class MainFrame extends JFrame {
     
     private final JTextField txtTotalHoras = new JTextField("Total Horas",34);
     private final JTextField txtInscIni = new JTextField("Inicio da Inscricao",34);
-    private final JTextField txtInscFim = new JTextField("Fima da inscrição",34);
-    private final JTextField txtAulaFim = new JTextField("Horario Final da Aula",34);
+    private final JTextField txtInscFim = new JTextField("Fim da da inscrição",34);
     private final JTextField txtAulaIni = new JTextField("Horario Inicial da Aula",34);
     
     private final DefaultListModel<Aula> modeloAula = new DefaultListModel<>();
@@ -125,7 +124,6 @@ public class MainFrame extends JFrame {
         pnlSul.add(txtInscIni);
         pnlSul.add(txtInscFim);
         pnlSul.add(txtAulaIni);
-        pnlSul.add(txtAulaFim);
         pnlSul.add(btnAddAula);
         pnlSul.add(btnRemAula);
         pnlSul.add(btnCriaAula);
@@ -285,8 +283,7 @@ public class MainFrame extends JFrame {
                     cal.setTime(sdf.parse(txtInscIni.getText()));
                     cal1.setTime(sdf.parse(txtInscFim.getText()));
                     cal2.setTime(sdf.parse(txtAulaIni.getText()));
-                    cal3.setTime(sdf.parse(txtAulaFim.getText()));
-                    Aula novaAula = new Aula(cal,cal1,cal2,cal3,lstProf.getSelectedValue(),txtDesc.getText(),Float.valueOf(txtTotalHoras.getText()),Integer.parseInt(txtMaxAlunos.getText()));
+                    Aula novaAula = new Aula(cal,cal1,cal2,lstProf.getSelectedValue(),txtDesc.getText(),Integer.parseInt(txtTotalHoras.getText()),Integer.parseInt(txtMaxAlunos.getText()));
                     listaAula.add(novaAula);
                     Escola.setListaAula(listaAula);
                     modeloAula.removeAllElements();

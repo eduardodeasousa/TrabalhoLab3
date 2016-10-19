@@ -23,11 +23,12 @@ public class Aula {
     public Aula() {
     }
 
-    public Aula(Calendar horario_ini_insc, Calendar horario_start, Calendar horario_end, Calendar horario_fim_insc, Professor prof, String desc, float total_horas, int max_alunos) {
+    public Aula(Calendar horario_ini_insc, Calendar horario_start, Calendar horario_fim_insc, Professor prof, String desc, Integer total_horas, int max_alunos) {
         this.alunos = new ArrayList<Aluno>();
         this.horario_ini_insc = horario_ini_insc;
         this.horario_start = horario_start;
-        this.horario_end = horario_end;
+        this.horario_end = horario_start;
+        this.horario_end.add(Calendar.HOUR_OF_DAY, total_horas);
         this.horario_fim_insc = horario_fim_insc;
         this.prof = prof;
         this.desc = desc;
