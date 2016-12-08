@@ -1,11 +1,14 @@
 package dcc171.ufjf.br;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Aula {
 
@@ -73,8 +76,9 @@ public class Aula {
         this.horario_end = horario_end;
     }
 
-    public Calendar getHorario_fim_insc() {
-        return horario_fim_insc;
+    public Date getHorario_fim_insc() {
+        Date data = this.horario_fim_insc.getTime();
+        return data;
     }
 
     public void setHorario_fim_insc(Calendar horario_fim_insc) {

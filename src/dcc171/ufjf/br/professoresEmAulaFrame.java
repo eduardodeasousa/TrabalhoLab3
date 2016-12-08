@@ -16,6 +16,7 @@ public class professoresEmAulaFrame extends JFrame {
 
     public professoresEmAulaFrame(ArrayList<Aula> aulas) {
         super("Aulas que o professor leciona");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         new FlowLayout(SwingConstants.LEFT);
         JPanel pnlMain = new JPanel(new BorderLayout());
         JScrollPane pnlMainFilho = new JScrollPane(lstAula);
